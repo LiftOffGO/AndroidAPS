@@ -287,7 +287,7 @@ class ObjectivesFragment : DaggerFragment() {
                                 if (!networkConnected) {
                                     rxBus.send(EventNtpStatus(rh.gs(R.string.notconnected), 99))
                                 } else if (success) {
-                                    if (objective.isCompleted(time)) {
+                                    if (objective.isCompleted(dateUtil.now())) {
                                         objective.accomplishedOn = time
                                         rxBus.send(EventNtpStatus(rh.gs(app.aaps.core.ui.R.string.success), 100))
                                         SystemClock.sleep(1000)
